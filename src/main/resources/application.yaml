@@ -1,2 +1,10 @@
+spring:
+  application:
+    name: applicationName
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
 server:
   port: 8092
