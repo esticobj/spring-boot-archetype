@@ -8,3 +8,6 @@ spring:
     time-zone: Asia/Shanghai
 server:
   port: 8092
+
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml,classpath:/mybatis/ext-mapper/*.xml
