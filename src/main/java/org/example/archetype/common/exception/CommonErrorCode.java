@@ -73,7 +73,7 @@ public enum CommonErrorCode implements ErrorCode {
 
     private String code;
 
-    private CommonErrorCode(String code) {
+    CommonErrorCode(String code) {
         this.code = code;
     }
 

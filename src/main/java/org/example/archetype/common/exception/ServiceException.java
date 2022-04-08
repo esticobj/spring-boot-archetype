@@ -1,6 +1,7 @@
 package org.example.archetype.common.exception;
 
 import org.example.archetype.common.ApplicationContextHolder;
+import org.springframework.core.env.Environment;
 
 import java.text.MessageFormat;
 
@@ -39,7 +40,8 @@ public class ServiceException extends RuntimeException {
 		this.code = null==errorCode ? "" : errorCode.getCode();
 		String msgPatten = null;
 		if (errorCode != null) {
-			msgPatten = ApplicationContextHolder.getApplicationContext().getEnvironment().getProperty(errorCode.getCode());
+			Environment environment = ApplicationContextHolder.getApplicationContext().getEnvironment();
+			msgPatten = environment.getProperty("commonErrorCode." + errorCode.getCode());
 		}
 		msgPatten = (msgPatten== null ? "" : msgPatten);
 		this.msg = null==errorCode ? "" : MessageFormat.format(msgPatten,param);
