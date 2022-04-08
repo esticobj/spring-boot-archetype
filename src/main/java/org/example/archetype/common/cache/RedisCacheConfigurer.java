@@ -70,8 +70,6 @@ public class RedisCacheConfigurer implements CachingConfigurer {
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory connectionFactory) {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
-        template.setConnectionFactory(connectionFactory);
-
         //使用StringRedisSerializer来序列化和反序列化redis的key值
         StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
         template.setKeySerializer(stringRedisSerializer);
@@ -79,11 +77,11 @@ public class RedisCacheConfigurer implements CachingConfigurer {
         template.setHashKeySerializer(stringRedisSerializer);
         template.setValueSerializer(jackson2JsonRedisSerializer());
         template.setHashValueSerializer(jackson2JsonRedisSerializer());
+        template.setConnectionFactory(connectionFactory);
         template.afterPropertiesSet();
 
         //开启事务
         template.setEnableTransactionSupport(true);
-        template.setConnectionFactory(connectionFactory);
         return template;
     }
 }
