@@ -1,12 +1,12 @@
 spring:
   redis:
-    host: host
+    host: localhost
     port: 6379
-    password: password
-    database: 1
+    password:
+    database: 0
   datasource:
-    url: jdbc:mysql://localhost:3306/db_name?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/archetype_test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: username
-    password: password
+    username: root
+    password: root
 
