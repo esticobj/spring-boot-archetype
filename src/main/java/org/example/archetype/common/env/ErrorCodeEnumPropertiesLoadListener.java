@@ -10,7 +10,7 @@ import org.springframework.core.env.MapPropertySource;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ErrorCodeLoadListener implements ApplicationListener<ApplicationEnvironmentPreparedEvent>, Ordered {
+public class ErrorCodeEnumPropertiesLoadListener implements ApplicationListener<ApplicationEnvironmentPreparedEvent>, Ordered {
     @Override
     public void onApplicationEvent(ApplicationEnvironmentPreparedEvent event) {
         ConfigurableEnvironment environment = event.getEnvironment();
@@ -18,7 +18,7 @@ public class ErrorCodeLoadListener implements ApplicationListener<ApplicationEnv
         for (CommonErrorCode value : CommonErrorCode.values()) {
             errorCodeMap.put(value.getCode(), value.getDesc());
         }
-        MapPropertySource mapPropertySource = new MapPropertySource("errorCode", errorCodeMap);
+        MapPropertySource mapPropertySource = new MapPropertySource("errorCodeEnumProperties", errorCodeMap);
         environment.getPropertySources().addLast(mapPropertySource);
     }
 
