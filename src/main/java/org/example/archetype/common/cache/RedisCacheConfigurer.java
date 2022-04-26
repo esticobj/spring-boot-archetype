@@ -31,7 +31,7 @@ public class RedisCacheConfigurer implements CachingConfigurer {
         // 生成一个默认配置，通过config对象即可对缓存进行自定义配置
         RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig();
         // 设置缓存的默认过期时间，也是使用Duration设置
-        config = config.entryTtl(Duration.ofSeconds(2))
+        config = config.entryTtl(Duration.ofHours(1))
                 // 设置 key为string序列化
                 .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
                 // 设置value为json序列化
