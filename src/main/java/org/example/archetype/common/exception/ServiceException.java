@@ -41,7 +41,7 @@ public class ServiceException extends RuntimeException {
 		String msgPatten = null;
 		if (errorCode != null) {
 			Environment environment = ApplicationContextHolder.getApplicationContext().getEnvironment();
-			msgPatten = environment.getProperty("commonErrorCode." + errorCode.getCode());
+			msgPatten = environment.getProperty(errorCode.getCode());
 		}
 		msgPatten = (msgPatten== null ? "" : msgPatten);
 		this.msg = null==errorCode ? "" : MessageFormat.format(msgPatten,param);
