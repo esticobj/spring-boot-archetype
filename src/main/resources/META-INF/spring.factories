@@ -1,1 +1,3 @@
-org.springframework.context.ApplicationListener=org.springframework.boot.context.ApplicationPidFileWriter
+org.springframework.context.ApplicationListener=org.springframework.boot.context.ApplicationPidFileWriter,\
+  org.example.archetype.common.env.CustomPropertiesLoadListener,\
+  org.example.archetype.common.env.ErrorCodeLoadListener
