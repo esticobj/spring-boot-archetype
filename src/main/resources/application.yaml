@@ -8,6 +8,23 @@ spring:
     time-zone: Asia/Shanghai
   main:
     allow-circular-references: true
-
+  datasource:
+    druid:
+      initial-size: 1
+      min-idle: 5
+      max-active: 200
+      log-abandoned: true
+      remove-abandoned: true
+      remove-abandoned-timeout: 180
+      max-wait: 2000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 1 from dual
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-perConnection-size: 20
+      filters: stat
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml,classpath:/mybatis/ext-mapper/*.xml
