@@ -1,13 +1,13 @@
 spring:
   application:
-    name: applicationName
+    name: demo-app
   profiles:
     active: dev
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: Asia/Shanghai
-server:
-  port: 8092
+  main:
+    allow-circular-references: true
 
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml,classpath:/mybatis/ext-mapper/*.xml

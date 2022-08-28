@@ -9,4 +9,15 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
 
+server:
+  port: 8092
+dubbo:
+  protocol:
+    port: 20899
+  provider:
+    telnet: ls,ps,cd,pwd,trace,count,invoke,select,status,log,help,clear,exit,shutdown
