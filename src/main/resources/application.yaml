@@ -28,3 +28,6 @@ spring:
       filters: stat
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml,classpath:/mybatis/ext-mapper/*.xml
+dubbo:
+  cloud:
+    subscribed-services:
