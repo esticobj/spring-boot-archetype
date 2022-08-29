@@ -1,7 +1,7 @@
 package org.example.archetype.common.handler;
 
-import org.example.archetype.common.BaseResponse;
-import org.example.archetype.common.BaseResponseUtil;
+import org.example.archetype.common.util.BaseResponse;
+import org.example.archetype.common.util.BaseResponseUtil;
 import org.example.archetype.common.exception.CommonErrorCode;
 import org.example.archetype.common.exception.ServiceException;
 import org.slf4j.Logger;

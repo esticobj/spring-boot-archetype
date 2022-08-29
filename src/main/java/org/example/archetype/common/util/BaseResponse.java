@@ -1,4 +1,4 @@
-package org.example.archetype.common;
+package org.example.archetype.common.util;
 
 public class BaseResponse<T> {
     private String code;

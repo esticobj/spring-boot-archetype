@@ -1,6 +1,6 @@
 package org.example.archetype.common.exception;
 
-import org.example.archetype.common.ApplicationContextHolder;
+import org.example.archetype.common.util.ApplicationContextHolder;
 import org.springframework.core.env.Environment;
 
 import java.text.MessageFormat;

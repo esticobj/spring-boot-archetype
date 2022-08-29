@@ -1,4 +1,4 @@
-package org.example.archetype.common;
+package org.example.archetype.common.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
