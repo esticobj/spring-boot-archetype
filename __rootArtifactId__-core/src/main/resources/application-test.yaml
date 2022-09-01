@@ -1,0 +1,18 @@
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 1
+  datasource:
+    url: jdbc:mysql://localhost:3306/archetype_test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+server:
+  port: 8182
+dubbo:
+  protocol:
+    port: 21899
+  provider:
+    telnet: ls,ps,cd,pwd,trace,count,invoke,select,status,log,help,clear,exit,shutdown

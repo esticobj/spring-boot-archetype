@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.archetype.dao.UserTestDao">
+  <resultMap id="BaseResultMap" type="org.example.archetype.entity.UserTest">
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="BIT" property="gender" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="open_id" jdbcType="CHAR" property="openId" />
+    <result column="union_id" jdbcType="CHAR" property="unionId" />
+    <result column="create_datetime" jdbcType="TIMESTAMP" property="createDatetime" />
+    <result column="update_datetime" jdbcType="TIMESTAMP" property="updateDatetime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    user_id, nick_name, avatar_url, gender, country, province, city, `language`, mobile, 
+    open_id, union_id, create_datetime, update_datetime
+  </sql>
+  <select id="selectByCriteria" parameterType="org.example.archetype.entity.UserTestCriteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from user_test
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_test
+    where user_id = #{userId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user_test
+    where user_id = #{userId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="org.example.archetype.entity.UserTestCriteria">
+    delete from user_test
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.example.archetype.entity.UserTest">
+    insert into user_test (user_id, nick_name, avatar_url, 
+      gender, country, province, 
+      city, `language`, mobile, 
+      open_id, union_id, create_datetime, 
+      update_datetime)
+    values (#{userId,jdbcType=BIGINT}, #{nickName,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=BIT}, #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{openId,jdbcType=CHAR}, #{unionId,jdbcType=CHAR}, #{createDatetime,jdbcType=TIMESTAMP}, 
+      #{updateDatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="org.example.archetype.entity.UserTest">
+    insert into user_test
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="avatarUrl != null">
+        avatar_url,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="language != null">
+        `language`,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="unionId != null">
+        union_id,
+      </if>
+      <if test="createDatetime != null">
+        create_datetime,
+      </if>
+      <if test="updateDatetime != null">
+        update_datetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarUrl != null">
+        #{avatarUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=BIT},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null">
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=CHAR},
+      </if>
+      <if test="unionId != null">
+        #{unionId,jdbcType=CHAR},
+      </if>
+      <if test="createDatetime != null">
+        #{createDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDatetime != null">
+        #{updateDatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByCriteria" parameterType="org.example.archetype.entity.UserTestCriteria" resultType="java.lang.Long">
+    select count(*) from user_test
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByCriteriaSelective" parameterType="map">
+    update user_test
+    <set>
+      <if test="row.userId != null">
+        user_id = #{row.userId,jdbcType=BIGINT},
+      </if>
+      <if test="row.nickName != null">
+        nick_name = #{row.nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="row.avatarUrl != null">
+        avatar_url = #{row.avatarUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="row.gender != null">
+        gender = #{row.gender,jdbcType=BIT},
+      </if>
+      <if test="row.country != null">
+        country = #{row.country,jdbcType=VARCHAR},
+      </if>
+      <if test="row.province != null">
+        province = #{row.province,jdbcType=VARCHAR},
+      </if>
+      <if test="row.city != null">
+        city = #{row.city,jdbcType=VARCHAR},
+      </if>
+      <if test="row.language != null">
+        `language` = #{row.language,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mobile != null">
+        mobile = #{row.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="row.openId != null">
+        open_id = #{row.openId,jdbcType=CHAR},
+      </if>
+      <if test="row.unionId != null">
+        union_id = #{row.unionId,jdbcType=CHAR},
+      </if>
+      <if test="row.createDatetime != null">
+        create_datetime = #{row.createDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="row.updateDatetime != null">
+        update_datetime = #{row.updateDatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByCriteria" parameterType="map">
+    update user_test
+    set user_id = #{row.userId,jdbcType=BIGINT},
+      nick_name = #{row.nickName,jdbcType=VARCHAR},
+      avatar_url = #{row.avatarUrl,jdbcType=VARCHAR},
+      gender = #{row.gender,jdbcType=BIT},
+      country = #{row.country,jdbcType=VARCHAR},
+      province = #{row.province,jdbcType=VARCHAR},
+      city = #{row.city,jdbcType=VARCHAR},
+      `language` = #{row.language,jdbcType=VARCHAR},
+      mobile = #{row.mobile,jdbcType=VARCHAR},
+      open_id = #{row.openId,jdbcType=CHAR},
+      union_id = #{row.unionId,jdbcType=CHAR},
+      create_datetime = #{row.createDatetime,jdbcType=TIMESTAMP},
+      update_datetime = #{row.updateDatetime,jdbcType=TIMESTAMP}
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.archetype.entity.UserTest">
+    update user_test
+    <set>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarUrl != null">
+        avatar_url = #{avatarUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=BIT},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null">
+        `language` = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=CHAR},
+      </if>
+      <if test="unionId != null">
+        union_id = #{unionId,jdbcType=CHAR},
+      </if>
+      <if test="createDatetime != null">
+        create_datetime = #{createDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDatetime != null">
+        update_datetime = #{updateDatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.archetype.entity.UserTest">
+    update user_test
+    set nick_name = #{nickName,jdbcType=VARCHAR},
+      avatar_url = #{avatarUrl,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=BIT},
+      country = #{country,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      `language` = #{language,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=CHAR},
+      union_id = #{unionId,jdbcType=CHAR},
+      create_datetime = #{createDatetime,jdbcType=TIMESTAMP},
+      update_datetime = #{updateDatetime,jdbcType=TIMESTAMP}
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
+</mapper>
