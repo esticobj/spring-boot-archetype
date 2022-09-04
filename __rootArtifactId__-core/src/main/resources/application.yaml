@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: demo-app
   profiles:
     active: dev
   jackson:

@@ -9,5 +9,5 @@ mvn clean install
 ```
 2.新开窗口，执行
 ```shell script
-mvn -DinteractiveMode=false -DgroupId=org.example -DartifactId=test0331-2 -Dversion=1.0-SNAPSHOT -DarchetypeGroupId=org.example.archetypes -DarchetypeArtifactId=spring-boot-template-archetype -DarchetypeVersion=1.0-SNAPSHOT org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate
+mvn -DinteractiveMode=false -DgroupId=org.example -DartifactId=test0331-2 -Dversion=0.0.1-SNAPSHOT -DarchetypeGroupId=org.example.archetypes -DarchetypeArtifactId=spring-boot-template-archetype -DarchetypeVersion=3.1-SNAPSHOT org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate
 ```

@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.example.archetypes</groupId>
         <artifactId>spring-boot-template</artifactId>
-        <version>3.0-SNAPSHOT</version>
+        <version>3.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>__rootArtifactId__-api</artifactId>
-    <version>0.3.1-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
 
 </project>

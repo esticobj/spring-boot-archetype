@@ -1,7 +1,3 @@
 spring:
   application:
     name: demo-portal
-  cloud:
-    nacos:
-      config:
-        server-addr: localhost:8848
