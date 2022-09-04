@@ -94,7 +94,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from user_test
     where user_id = #{userId,jdbcType=BIGINT}
@@ -110,15 +110,15 @@
     </if>
   </delete>
   <insert id="insert" parameterType="org.example.archetype.entity.UserTest">
-    insert into user_test (user_id, nick_name, avatar_url, 
-      gender, country, province, 
-      city, `language`, mobile, 
-      open_id, union_id, create_datetime, 
+    insert into user_test (user_id, nick_name, avatar_url,
+      gender, country, province,
+      city, `language`, mobile,
+      open_id, union_id, create_datetime,
       update_datetime)
-    values (#{userId,jdbcType=BIGINT}, #{nickName,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, 
-      #{gender,jdbcType=BIT}, #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
-      #{city,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
-      #{openId,jdbcType=CHAR}, #{unionId,jdbcType=CHAR}, #{createDatetime,jdbcType=TIMESTAMP}, 
+    values (#{userId,jdbcType=BIGINT}, #{nickName,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR},
+      #{gender,jdbcType=BIT}, #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR},
+      #{city,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR},
+      #{openId,jdbcType=CHAR}, #{unionId,jdbcType=CHAR}, #{createDatetime,jdbcType=TIMESTAMP},
       #{updateDatetime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="org.example.archetype.entity.UserTest">
@@ -262,18 +262,18 @@
   <update id="updateByCriteria" parameterType="map">
     update user_test
     set user_id = #{row.userId,jdbcType=BIGINT},
-      nick_name = #{row.nickName,jdbcType=VARCHAR},
-      avatar_url = #{row.avatarUrl,jdbcType=VARCHAR},
-      gender = #{row.gender,jdbcType=BIT},
-      country = #{row.country,jdbcType=VARCHAR},
-      province = #{row.province,jdbcType=VARCHAR},
-      city = #{row.city,jdbcType=VARCHAR},
-      `language` = #{row.language,jdbcType=VARCHAR},
-      mobile = #{row.mobile,jdbcType=VARCHAR},
-      open_id = #{row.openId,jdbcType=CHAR},
-      union_id = #{row.unionId,jdbcType=CHAR},
-      create_datetime = #{row.createDatetime,jdbcType=TIMESTAMP},
-      update_datetime = #{row.updateDatetime,jdbcType=TIMESTAMP}
+    nick_name = #{row.nickName,jdbcType=VARCHAR},
+    avatar_url = #{row.avatarUrl,jdbcType=VARCHAR},
+    gender = #{row.gender,jdbcType=BIT},
+    country = #{row.country,jdbcType=VARCHAR},
+    province = #{row.province,jdbcType=VARCHAR},
+    city = #{row.city,jdbcType=VARCHAR},
+    `language` = #{row.language,jdbcType=VARCHAR},
+    mobile = #{row.mobile,jdbcType=VARCHAR},
+    open_id = #{row.openId,jdbcType=CHAR},
+    union_id = #{row.unionId,jdbcType=CHAR},
+    create_datetime = #{row.createDatetime,jdbcType=TIMESTAMP},
+    update_datetime = #{row.updateDatetime,jdbcType=TIMESTAMP}
     <if test="example != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

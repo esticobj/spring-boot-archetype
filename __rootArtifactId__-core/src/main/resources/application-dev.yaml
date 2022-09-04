@@ -13,16 +13,37 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:9080
+      datasource:
+        r1:
+          nacos:
+            server-addr: localhost:8848
+            group-id: DEFAULT_GROUP
+            namepace:
+        r2:
+          nacos:
+            server-addr: localhost:8848
+            group-id: DEFAULT_GROUP
+            namepace:
+      eager: true
 server:
   port: 8092
 dubbo:
   protocol:
-    port: 20899
+    port: 21899
   provider:
     telnet: ls,ps,cd,pwd,trace,count,invoke,select,status,log,help,clear,exit,shutdown
-
+  registries:
+    nacos:
+      address: nacos://localhost:8848
 xxl:
   job:
     admin:
-      addresses: http://127.0.0.1:8080/xxl-job-admin
+      addresses: http://127.0.0.1:8180/xxl-job-admin
+    executor:
+      address:
+      ip:
+      port: 9899

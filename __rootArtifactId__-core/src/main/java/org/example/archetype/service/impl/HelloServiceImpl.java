@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @RefreshScope
 public class HelloServiceImpl implements HelloService {
 
-    @Value("${test.name}")
+    @Value("${test.name:aaa}")
     private String name;
 
     @Override

@@ -10,13 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>__rootArtifactId__-core</artifactId>
-    <version>3.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <spring.boot.version>2.6.5</spring.boot.version>
         <spring.cloud.version>2021.0.1</spring.cloud.version>
         <spring.cloud.alibaba.version>2021.0.1.0</spring.cloud.alibaba.version>
         <xxl-job-core.version>2.3.1</xxl-job-core.version>
+        <__rootArtifactId__-api.version>0.3.1-SNAPSHOT</__rootArtifactId__-api.version>
     </properties>
 
     <dependencies>
@@ -100,6 +101,10 @@
             <artifactId>sentinel-transport-simple-http</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
@@ -112,7 +117,7 @@
         <dependency>
             <groupId>org.example.archetypes</groupId>
             <artifactId>__rootArtifactId__-api</artifactId>
-            <version>3.0-SNAPSHOT</version>
+            <version>${__rootArtifactId__-api.version}</version>
         </dependency>
     </dependencies>
 

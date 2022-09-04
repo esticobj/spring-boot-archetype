@@ -26,11 +26,31 @@ spring:
       pool-prepared-statements: true
       max-pool-prepared-statement-perConnection-size: 20
       filters: stat
+  cloud:
+    sentinel:
+      datasource:
+        r1:
+          nacos:
+            data-id: ${spring.application.name}-sentinel-flow
+            data-type: json
+            rule-type: flow
+        r2:
+          nacos:
+            data-id: ${spring.application.name}-sentinel-degrade
+            data-type: json
+            rule-type: degrade
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml,classpath:/mybatis/ext-mapper/*.xml
 dubbo:
+  registry:
+    protocol: spring-cloud
+    default: false
+    address: localhost
   cloud:
     subscribed-services:
+  registries:
+    nacos:
+      default: true
 
 xxl:
   job:
@@ -38,8 +58,6 @@ xxl:
     executor:
       appname: ${spring.application.name}
       address:
-      ip:
-      port: 9899
       logpath: /data/applogs/xxl-job/jobhandler
       logretentiondays: 30
 
