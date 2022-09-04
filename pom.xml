@@ -11,6 +11,7 @@
     <modules>
         <module>__rootArtifactId__-api</module>
         <module>__rootArtifactId__-core</module>
+        <module>__rootArtifactId__-portal</module>
     </modules>
 
     <properties>

@@ -1,0 +1,3 @@
+org.springframework.context.ApplicationListener=org.springframework.boot.context.ApplicationPidFileWriter,\
+  org.example.archetype.portal.common.env.CustomPropertiesLoadListener,\
+  org.example.archetype.portal.common.env.ErrorCodeEnumPropertiesLoadListener
